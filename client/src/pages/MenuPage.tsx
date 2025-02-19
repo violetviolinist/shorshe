@@ -7,18 +7,60 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 const menuItems = {
   appetizers: [
-    { id: 1, name: "Caprese Crostini", price: 100, description: "Fresh slices of vine-ripened tomatoes and creamy mozzarella cheese" },
-    { id: 2, name: "Crispy Calamari", price: 100, description: "Tender rings of calamari are lightly breaded and fried to golden perfection" },
-    { id: 3, name: "Stuffed Mushrooms", price: 100, description: "Plump mushroom caps are filled with a flavorful mixture" }
+    { 
+      id: 1, 
+      name: "Bengali Shrimp Cutlets", 
+      price: 120, 
+      description: "Succulent shrimp patties infused with Bengali spices, served with mint chutney" 
+    },
+    { 
+      id: 2, 
+      name: "Mashed Potato Chop", 
+      price: 80, 
+      description: "Crispy potato croquettes stuffed with minced meat and aromatic spices" 
+    }
   ],
   main: [
-    { id: 4, name: "Grilled Salmon", price: 100, description: "Succulent fillet of Atlantic salmon" },
-    { id: 5, name: "Classic Beef Burger", price: 100, description: "Juicy Angus beef patty topped with melted cheddar cheese" },
-    { id: 6, name: "Mushroom Risotto", price: 100, description: "Creamy Arborio rice simmered with a medley of wild mushrooms" }
+    { 
+      id: 3, 
+      name: "Shorshe Ilish", 
+      price: 450, 
+      description: "Hilsa fish cooked in a rich mustard gravy, a Bengali delicacy served with steamed rice" 
+    },
+    { 
+      id: 4, 
+      name: "Morog Polao", 
+      price: 320, 
+      description: "Fragrant rice cooked with tender chicken, aromatic spices, and caramelized onions" 
+    }
   ],
   desserts: [
-    { id: 7, name: "Zesty Lemon Tart", price: 100, description: "A buttery pastry crust cradles a tangy lemon curd filling" },
-    { id: 8, name: "Tiramisu", price: 100, description: "Layers of delicate ladyfinger cookies soaked in espresso" }
+    { 
+      id: 5, 
+      name: "Roshogolla", 
+      price: 60, 
+      description: "Soft cottage cheese dumplings soaked in aromatic sugar syrup" 
+    },
+    { 
+      id: 6, 
+      name: "Mishti Doi", 
+      price: 80, 
+      description: "Traditional Bengali sweet yogurt, slow-cooked to perfection" 
+    }
+  ],
+  special: [
+    {
+      id: 7,
+      name: "Mediterranean Delight",
+      price: 100,
+      description: "Grilled lamb chops marinated in aromatic herbs, served alongside a refreshing Greek salad bursting with ripe tomatoes"
+    },
+    {
+      id: 8,
+      name: "Asian Fusion Feast",
+      price: 100,
+      description: "Crispy tempura shrimp drizzled with a sweet and spicy chili sauce, followed by tender slices of teriyaki-glazed beef"
+    }
   ]
 };
 
@@ -33,12 +75,13 @@ export default function MenuPage() {
     <Layout>
       <div className="container mx-auto px-4 py-12">
         <h1 className="text-4xl font-bold text-center mb-12">Our Menu</h1>
-        
+
         <Tabs value={activeTab} onValueChange={setActiveTab}>
-          <TabsList className="grid w-full grid-cols-3 mb-8">
+          <TabsList className="grid w-full grid-cols-4 mb-8">
             <TabsTrigger value="appetizers">Appetizers</TabsTrigger>
             <TabsTrigger value="main">Main Course</TabsTrigger>
             <TabsTrigger value="desserts">Desserts</TabsTrigger>
+            <TabsTrigger value="special">Special Menu</TabsTrigger>
           </TabsList>
 
           {(Object.keys(menuItems) as Array<keyof typeof menuItems>).map((category) => (
@@ -59,7 +102,7 @@ export default function MenuPage() {
                       />
                       <h3 className="text-xl font-semibold mb-2">{item.name}</h3>
                       <p className="text-muted-foreground mb-4">{item.description}</p>
-                      <p className="text-lg font-semibold">${item.price}</p>
+                      <p className="text-lg font-semibold">₹{item.price}</p>
                     </CardContent>
                     <CardFooter>
                       <Button 
