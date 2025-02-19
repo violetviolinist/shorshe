@@ -27,6 +27,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.json(item);
   });
 
+  // Get all featured menu items
+  app.get("/api/featuredMenu", async (_req, res) => {
+    const items = await storage.getFeaturedMenuItems();
+    res.json(items);
+  });
+
+  // Get featured menu item by ID
+  app.get("/api/featuredMenu/:id", async (req, res) => {
+    const id = parseInt(req.params.id);
+    
+    if (isNaN(id)) {
+      return res.status(400).json({ message: "Invalid ID format" });
+    }
+
+    const item = await storage.getFeaturedMenuItem(id);
+    
+    if (!item) {
+      return res.status(404).json({ message: "Featured menu item not found" });
+    }
+
+    res.json(item);
+  });
+
   // Create order
   app.post("/api/orders", async (req, res) => {
     const order = insertOrderSchema.parse(req.body);

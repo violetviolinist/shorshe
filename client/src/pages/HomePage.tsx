@@ -1,9 +1,49 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import HeroSection from "@/components/HeroSection";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
+
+interface MenuItem {
+  id: number;
+  name: string;
+  price: string;
+  description: string;
+  image: string;
+  category: string;
+}
 
 export default function HomePage() {
+  const [featuredItems, setFeaturedItems] = useState<MenuItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    const fetchFeaturedItems = async () => {
+      try {
+        const response = await fetch('/api/featuredMenu');
+        const items = await response.json();
+        setFeaturedItems(items);
+      } catch (error) {
+        toast({
+          title: "Error",
+          description: "Failed to load featured dishes",
+          variant: "destructive"
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFeaturedItems();
+  }, [toast]);
+
+  const handleOrder = (itemId: number) => {
+    window.location.href = `/featured/checkout/${itemId}`;
+  };
+
   return (
     <Layout>
       <HeroSection />
@@ -18,8 +58,8 @@ export default function HomePage() {
           <div>
             <h2 className="text-4xl font-bold mb-6">Our Story</h2>
             <p className="text-lg text-muted-foreground">
-              Shorshe Ilish brings the authentic taste of Bengali cuisine to Egypt. Our signature dish,
-              the Ilish fish prepared with mustard sauce, represents the perfect blend of two rich culinary traditions.
+              Shorshe Elish brings the authentic taste of Bengali cuisine to Egypt. Our signature dish,
+              the Elish fish prepared with mustard sauce, represents the perfect blend of two rich culinary traditions.
             </p>
           </div>
           <Card>
@@ -37,68 +77,42 @@ export default function HomePage() {
       <section className="bg-muted py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">Featured Dishes</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                name: 'Shorshe Ilish Date',
-                image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/shorshe_date.jpeg',
-                description: 'A unique fusion of Bengali and Egyptian flavors'
-              },
-              {
-                name: 'Shorshe Ilish Fatta',
-                image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fatta.jpeg',
-                description: 'A unique fusion of Bengali and Egyptian flavors'
-              },
-              {
-                name: 'Shorshe Ilish Koshari',
-                image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/koshari.jpeg',
-                description: 'A unique fusion of Bengali and Egyptian flavors'
-              },
-              {
-                name: 'Shorshe Ilish Fusion',
-                image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fusion.jpeg',
-                description: 'A unique fusion of Bengali and Egyptian flavors'
-              },
-              {
-                name: 'Shorshe Ilish Shorba',
-                image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/shorba.jpeg',
-                description: 'A unique fusion of Bengali and Egyptian flavors'
-              },
-              {
-                name: 'Shorshe Ilish and Fava Beans',
-                image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fava.jpeg',
-                description: 'A unique fusion of Bengali and Egyptian flavors'
-              },
-              {
-                name: 'Fried Shorshe Ilish',
-                image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fried.jpeg',
-                description: 'A unique fusion of Bengali and Egyptian flavors'
-              },
-            ].map((dish) => (
-              <motion.div
-                key={dish.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                <Card className="h-[400px] flex flex-col">
-                  <div className="h-[66%]">
+          
+          {loading ? (
+            <div className="text-center">Loading featured dishes...</div>
+          ) : featuredItems.length === 0 ? (
+            <div className="text-center">No featured dishes available.</div>
+          ) : (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              {featuredItems.map((item) => (
+                <Card key={item.id}>
+                  <CardContent className="p-6">
                     <img
-                      src={dish.image}
-                      alt={dish.name}
-                      className="w-full h-full object-cover rounded-t-lg"
+                      src={item.image || "https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/placeholder.png?updatedAt=1739984688784"}
+                      alt={item.name}
+                      className="w-full h-48 object-cover rounded-md mb-4"
                     />
-                  </div>
-                  <CardContent className="p-6 flex-1">
-                    <h3 className="text-xl font-semibold mb-2">{dish.name}</h3>
-                    <p className="text-muted-foreground">
-                      {dish.description}
-                    </p>
+                    <h3 className="text-xl font-semibold mb-2">{item.name.length > 23 ? `${item.name.substring(0, 20)}...` : item.name}</h3>
+                    <p className="text-muted-foreground mb-4">{item.description}</p>
+                    <p className="text-lg font-semibold">₹{item.price}</p>
                   </CardContent>
+                  <CardFooter>
+                    <Button 
+                      className="w-full"
+                      onClick={() => handleOrder(item.id)}
+                    >
+                      Order Now
+                    </Button>
+                  </CardFooter>
                 </Card>
-              </motion.div>
-            ))}
-          </div>
+              ))}
+            </motion.div>
+          )}
         </div>
       </section>
     </Layout>

@@ -8,11 +8,13 @@ export interface IStorage {
 
 export class MemStorage implements IStorage {
   private menuItems: Map<number, MenuItem>;
+  private featuredItems: Map<number, MenuItem>
   private orders: Map<number, Order>;
   private currentOrderId: number;
 
   constructor() {
     this.menuItems = new Map();
+    this.featuredItems = new Map();
     this.orders = new Map();
     this.currentOrderId = 1;
 
@@ -128,8 +130,71 @@ export class MemStorage implements IStorage {
       }
     ];
 
+    const _featuredItems: MenuItem[] = [
+      {
+        id: 1,
+        name: 'Shorshe Elish Date',
+        image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/shorshe_date.jpeg',
+        description: 'A unique fusion of Bengali and Egyptian flavors',
+        price: '100',
+        category: 'special'
+      },
+      {
+        id: 2,
+        name: 'Shorshe Elish Fatta',
+        image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fatta.jpeg',
+        description: 'A unique fusion of Bengali and Egyptian flavors',
+        price: '100',
+        category: 'special'
+      },
+      {
+        id: 3,
+        name: 'Shorshe Elish Koshari',
+        image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/koshari.jpeg',
+        description: 'A unique fusion of Bengali and Egyptian flavors',
+        price: '100',
+        category: 'special'
+      },
+      {
+        id: 4,
+        name: 'Shorshe Elish Fusion',
+        image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fusion.jpeg',
+        description: 'A unique fusion of Bengali and Egyptian flavors',
+        price: '100',
+        category: 'special'
+      },
+      {
+        id: 5,
+        name: 'Shorshe Elish Shorba',
+        image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/shorba.jpeg',
+        description: 'A unique fusion of Bengali and Egyptian flavors',
+        price: '100',
+        category: 'special'
+      },
+      {
+        id: 6,
+        name: 'Shorshe Elish and Fava Beans',
+        image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fava.jpeg',
+        description: 'A unique fusion of Bengali and Egyptian flavors',
+        price: '100',
+        category: 'special'
+      },
+      {
+        id: 7,
+        name: 'Fried Shorshe Elish',
+        image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fried.jpeg',
+        description: 'A unique fusion of Bengali and Egyptian flavors',
+        price: '100',
+        category: 'special'
+      },
+    ];
+
     items.forEach(item => {
       this.menuItems.set(item.id, item);
+    });
+
+    _featuredItems.forEach(item => {
+      this.featuredItems.set(item.id, item)
     });
   }
 
@@ -139,6 +204,14 @@ export class MemStorage implements IStorage {
 
   async getMenuItem(id: number): Promise<MenuItem | undefined> {
     return this.menuItems.get(id);
+  }
+
+  async getFeaturedMenuItems(): Promise<MenuItem[]> {
+    return Array.from(this.featuredItems.values());
+  }
+
+  async getFeaturedMenuItem(id: number): Promise<MenuItem | undefined> {
+    return this.featuredItems.get(id);
   }
 
   async createOrder(insertOrder: InsertOrder): Promise<Order> {

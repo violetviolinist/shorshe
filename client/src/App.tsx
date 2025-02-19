@@ -6,6 +6,7 @@ import HomePage from "@/pages/HomePage";
 import MenuPage from "@/pages/MenuPage";
 import CheckoutPage from "@/pages/CheckoutPage";
 import NotFound from "@/pages/not-found";
+import FeaturedCheckoutPage from "./pages/FeaturedCheckoutPage";
 
 function Router() {
   return (
@@ -13,6 +14,7 @@ function Router() {
       <Route path="/" component={HomePage} />
       <Route path="/menu" component={MenuPage} />
       <Route path="/checkout/:id" component={CheckoutPage} />
+      <Route path="/featured/checkout/:id" component={FeaturedCheckoutPage} />
       <Route component={NotFound} />
     </Switch>
   );
