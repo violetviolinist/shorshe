@@ -25,7 +25,7 @@ export default function HomePage() {
           <Card>
             <CardContent className="p-0">
               <img 
-                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800"
+                src="https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/front.png"
                 alt="Restaurant interior"
                 className="w-full h-[400px] object-cover rounded-lg"
               />
@@ -38,18 +38,61 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">Featured Dishes</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            {['Shorshe Ilish Date', 'Shorshe Ilish Fatta', 'Shorshe Ilish Koshari'].map((dish) => (
+            {[
+              {
+                name: 'Shorshe Ilish Date',
+                image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/shorshe_date.jpeg',
+                description: 'A unique fusion of Bengali and Egyptian flavors'
+              },
+              {
+                name: 'Shorshe Ilish Fatta',
+                image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fatta.jpeg',
+                description: 'A unique fusion of Bengali and Egyptian flavors'
+              },
+              {
+                name: 'Shorshe Ilish Koshari',
+                image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/koshari.jpeg',
+                description: 'A unique fusion of Bengali and Egyptian flavors'
+              },
+              {
+                name: 'Shorshe Ilish Fusion',
+                image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fusion.jpeg',
+                description: 'A unique fusion of Bengali and Egyptian flavors'
+              },
+              {
+                name: 'Shorshe Ilish Shorba',
+                image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/shorba.jpeg',
+                description: 'A unique fusion of Bengali and Egyptian flavors'
+              },
+              {
+                name: 'Shorshe Ilish and Fava Beans',
+                image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fava.jpeg',
+                description: 'A unique fusion of Bengali and Egyptian flavors'
+              },
+              {
+                name: 'Fried Shorshe Ilish',
+                image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fried.jpeg',
+                description: 'A unique fusion of Bengali and Egyptian flavors'
+              },
+            ].map((dish) => (
               <motion.div
-                key={dish}
+                key={dish.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">{dish}</h3>
+                <Card className="h-[400px] flex flex-col">
+                  <div className="h-[66%]">
+                    <img
+                      src={dish.image}
+                      alt={dish.name}
+                      className="w-full h-full object-cover rounded-t-lg"
+                    />
+                  </div>
+                  <CardContent className="p-6 flex-1">
+                    <h3 className="text-xl font-semibold mb-2">{dish.name}</h3>
                     <p className="text-muted-foreground">
-                      A unique fusion of Bengali and Egyptian flavors
+                      {dish.description}
                     </p>
                   </CardContent>
                 </Card>

@@ -1,75 +1,91 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { useToast } from "@/hooks/use-toast";
 
-const menuItems = {
-  appetizers: [
-    { 
-      id: 1, 
-      name: "Bengali Shrimp Cutlets", 
-      price: 120, 
-      description: "Succulent shrimp patties infused with Bengali spices, served with mint chutney" 
-    },
-    { 
-      id: 2, 
-      name: "Mashed Potato Chop", 
-      price: 80, 
-      description: "Crispy potato croquettes stuffed with minced meat and aromatic spices" 
-    }
-  ],
-  main: [
-    { 
-      id: 3, 
-      name: "Shorshe Ilish", 
-      price: 450, 
-      description: "Hilsa fish cooked in a rich mustard gravy, a Bengali delicacy served with steamed rice" 
-    },
-    { 
-      id: 4, 
-      name: "Morog Polao", 
-      price: 320, 
-      description: "Fragrant rice cooked with tender chicken, aromatic spices, and caramelized onions" 
-    }
-  ],
-  desserts: [
-    { 
-      id: 5, 
-      name: "Roshogolla", 
-      price: 60, 
-      description: "Soft cottage cheese dumplings soaked in aromatic sugar syrup" 
-    },
-    { 
-      id: 6, 
-      name: "Mishti Doi", 
-      price: 80, 
-      description: "Traditional Bengali sweet yogurt, slow-cooked to perfection" 
-    }
-  ],
-  special: [
-    {
-      id: 7,
-      name: "Mediterranean Delight",
-      price: 100,
-      description: "Grilled lamb chops marinated in aromatic herbs, served alongside a refreshing Greek salad bursting with ripe tomatoes"
-    },
-    {
-      id: 8,
-      name: "Asian Fusion Feast",
-      price: 100,
-      description: "Crispy tempura shrimp drizzled with a sweet and spicy chili sauce, followed by tender slices of teriyaki-glazed beef"
-    }
-  ]
+interface MenuItem {
+  id: number;
+  name: string;
+  price: string;
+  description: string;
+  image: string;
+  category: string;
+}
+
+type MenuCategories = {
+  [key: string]: MenuItem[];
 };
 
 export default function MenuPage() {
   const [activeTab, setActiveTab] = useState("appetizers");
+  const [menuItems, setMenuItems] = useState<MenuCategories>({});
+  const [loading, setLoading] = useState(true);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    const fetchMenuItems = async () => {
+      try {
+        const response = await fetch('/api/menu');
+        const items: MenuItem[] = await response.json();
+        
+        // Group items by category
+        const groupedItems = items.reduce((acc: MenuCategories, item) => {
+          const category = item.category.toLowerCase();
+          if (!acc[category]) {
+            acc[category] = [];
+          }
+          acc[category].push(item);
+          return acc;
+        }, {});
+        
+        setMenuItems(groupedItems);
+        
+        // Set initial active tab to first available category
+        if (Object.keys(groupedItems).length > 0) {
+          setActiveTab(Object.keys(groupedItems)[0]);
+        }
+      } catch (error) {
+        toast({
+          title: "Error",
+          description: "Failed to load menu items",
+          variant: "destructive"
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMenuItems();
+  }, [toast]);
 
   const handleOrder = (itemId: number) => {
     window.location.href = `/checkout/${itemId}`;
   };
+
+  if (loading) {
+    return (
+      <Layout>
+        <div className="container mx-auto px-4 py-12 text-center">
+          <h1 className="text-4xl font-bold mb-8">Our Menu</h1>
+          <p>Loading menu items...</p>
+        </div>
+      </Layout>
+    );
+  }
+
+  if (Object.keys(menuItems).length === 0) {
+    return (
+      <Layout>
+        <div className="container mx-auto px-4 py-12 text-center">
+          <h1 className="text-4xl font-bold mb-8">Our Menu</h1>
+          <p>No menu items available.</p>
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
@@ -78,13 +94,14 @@ export default function MenuPage() {
 
         <Tabs value={activeTab} onValueChange={setActiveTab}>
           <TabsList className="grid w-full grid-cols-4 mb-8">
-            <TabsTrigger value="appetizers">Appetizers</TabsTrigger>
-            <TabsTrigger value="main">Main Course</TabsTrigger>
-            <TabsTrigger value="desserts">Desserts</TabsTrigger>
-            <TabsTrigger value="special">Special Menu</TabsTrigger>
+            {Object.keys(menuItems).map((category) => (
+              <TabsTrigger key={category} value={category} className="capitalize">
+                {category}
+              </TabsTrigger>
+            ))}
           </TabsList>
 
-          {(Object.keys(menuItems) as Array<keyof typeof menuItems>).map((category) => (
+          {Object.entries(menuItems).map(([category, items]) => (
             <TabsContent key={category} value={category}>
               <motion.div 
                 initial={{ opacity: 0 }}
@@ -92,11 +109,11 @@ export default function MenuPage() {
                 exit={{ opacity: 0 }}
                 className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
               >
-                {menuItems[category].map((item) => (
+                {items.map((item) => (
                   <Card key={item.id}>
                     <CardContent className="p-6">
                       <img
-                        src={`https://source.unsplash.com/800x600/?food,${item.name}`}
+                        src={item.image || "https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/placeholder.png?updatedAt=1739984688784"}
                         alt={item.name}
                         className="w-full h-48 object-cover rounded-md mb-4"
                       />

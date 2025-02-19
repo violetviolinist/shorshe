@@ -9,8 +9,11 @@ export default function Layout({ children }: LayoutProps) {
     <div className="min-h-screen bg-background">
       <nav className="fixed top-0 w-full bg-background/95 backdrop-blur z-50 border-b border-border">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <a href="/" className="text-2xl font-semibold text-primary">
-            Shorshe Ilish
+          <a href="/" className="flex items-center gap-2">
+            <img src="https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/logo.png?tr=,w-50" alt="Shorshe Ilish Logo" />
+            <span className="text-2xl font-semibold text-primary">
+              Shorshe Ilish
+            </span>
           </a>
           <div className="flex gap-6">
             <a href="/" className="text-foreground hover:text-primary transition">Home</a>

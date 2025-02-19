@@ -6,21 +6,51 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 
+interface MenuItem {
+  id: number;
+  name: string;
+  price: string;
+  description: string;
+  image: string;
+  category: string;
+}
+
 export default function CheckoutPage() {
   const [location] = useLocation();
   const { toast } = useToast();
-  const [item, setItem] = useState<any>(null);
+  const [item, setItem] = useState<MenuItem | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const itemId = location.split("/").pop();
-    // In a real app, we would fetch the item details from an API
-    setItem({
-      id: itemId,
-      name: "Sample Dish",
-      price: 100,
-      image: "https://source.unsplash.com/800x600/?food"
-    });
-  }, [location]);
+    const fetchItem = async () => {
+      try {
+        const itemId = location.split("/").pop();
+        const response = await fetch(`/api/menu`);
+        const menuItems = await response.json();
+        const selectedItem = menuItems.find((item: MenuItem) => item.id === Number(itemId));
+        
+        if (selectedItem) {
+          setItem(selectedItem);
+        } else {
+          toast({
+            title: "Error",
+            description: "Dish not found",
+            variant: "destructive"
+          });
+        }
+      } catch (error) {
+        toast({
+          title: "Error",
+          description: "Failed to load dish details",
+          variant: "destructive"
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchItem();
+  }, [location, toast]);
 
   const handleFinishOrder = () => {
     toast({
@@ -29,7 +59,28 @@ export default function CheckoutPage() {
     });
   };
 
-  if (!item) return null;
+  if (loading) {
+    return (
+      <Layout>
+        <div className="container mx-auto px-4 py-12 text-center">
+          Loading...
+        </div>
+      </Layout>
+    );
+  }
+
+  if (!item) {
+    return (
+      <Layout>
+        <div className="container mx-auto px-4 py-12 text-center">
+          <h1 className="text-2xl font-bold mb-4">Dish Not Found</h1>
+          <Button asChild>
+            <a href="/menu">Back to Menu</a>
+          </Button>
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
@@ -51,7 +102,8 @@ export default function CheckoutPage() {
                 />
                 <div>
                   <h2 className="text-2xl font-semibold mb-2">{item.name}</h2>
-                  <p className="text-xl">${item.price}</p>
+                  <p className="text-muted-foreground mb-4">{item.description}</p>
+                  <p className="text-xl">₹{item.price}</p>
                 </div>
               </div>
             </CardContent>
