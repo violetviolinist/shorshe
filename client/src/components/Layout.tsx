@@ -10,9 +10,9 @@ export default function Layout({ children }: LayoutProps) {
       <nav className="fixed top-0 w-full bg-background/95 backdrop-blur z-50 border-b border-border">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2">
-            <img src="https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/logo.png?tr=,w-50" alt="Shorshe Ilish Logo" />
+            <img src="https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/logo.png?tr=,w-50" alt="Shorshe Elish Logo" />
             <span className="text-2xl font-semibold text-primary">
-              Shorshe Ilish
+              Shorshe Elish
             </span>
           </a>
           <div className="flex gap-6">
@@ -32,7 +32,7 @@ export default function Layout({ children }: LayoutProps) {
       <footer className="bg-muted mt-20 py-8">
         <div className="container mx-auto px-4">
           <div className="text-center text-muted-foreground">
-            <p>© 2024 Shorshe Ilish. All rights reserved.</p>
+            <p>© 2024 Shorshe Elish. All rights reserved.</p>
             <p className="mt-2">Open Hours: 09:00 AM - 10:00 PM</p>
           </div>
         </div>

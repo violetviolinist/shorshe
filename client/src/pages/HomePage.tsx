@@ -18,8 +18,8 @@ export default function HomePage() {
           <div>
             <h2 className="text-4xl font-bold mb-6">Our Story</h2>
             <p className="text-lg text-muted-foreground">
-              Shorshe Ilish brings the authentic taste of Bengali cuisine to Egypt. Our signature dish,
-              the Ilish fish prepared with mustard sauce, represents the perfect blend of two rich culinary traditions.
+              Shorshe Elish brings the authentic taste of Bengali cuisine to Egypt. Our signature dish,
+              the Elish fish prepared with mustard sauce, represents the perfect blend of two rich culinary traditions.
             </p>
           </div>
           <Card>
@@ -40,37 +40,37 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                name: 'Shorshe Ilish Date',
+                name: 'Shorshe Elish Date',
                 image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/shorshe_date.jpeg',
                 description: 'A unique fusion of Bengali and Egyptian flavors'
               },
               {
-                name: 'Shorshe Ilish Fatta',
+                name: 'Shorshe Elish Fatta',
                 image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fatta.jpeg',
                 description: 'A unique fusion of Bengali and Egyptian flavors'
               },
               {
-                name: 'Shorshe Ilish Koshari',
+                name: 'Shorshe Elish Koshari',
                 image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/koshari.jpeg',
                 description: 'A unique fusion of Bengali and Egyptian flavors'
               },
               {
-                name: 'Shorshe Ilish Fusion',
+                name: 'Shorshe Elish Fusion',
                 image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fusion.jpeg',
                 description: 'A unique fusion of Bengali and Egyptian flavors'
               },
               {
-                name: 'Shorshe Ilish Shorba',
+                name: 'Shorshe Elish Shorba',
                 image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/shorba.jpeg',
                 description: 'A unique fusion of Bengali and Egyptian flavors'
               },
               {
-                name: 'Shorshe Ilish and Fava Beans',
+                name: 'Shorshe Elish and Fava Beans',
                 image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fava.jpeg',
                 description: 'A unique fusion of Bengali and Egyptian flavors'
               },
               {
-                name: 'Fried Shorshe Ilish',
+                name: 'Fried Shorshe Elish',
                 image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fried.jpeg',
                 description: 'A unique fusion of Bengali and Egyptian flavors'
               },
