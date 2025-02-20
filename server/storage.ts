@@ -136,7 +136,7 @@ export class MemStorage implements IStorage {
         name: 'Shorshe Elish Date',
         image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/shorshe_date.jpeg',
         description: 'A unique fusion of Bengali and Egyptian flavors',
-        price: '100',
+        price: '450',
         category: 'special'
       },
       {
@@ -144,7 +144,7 @@ export class MemStorage implements IStorage {
         name: 'Shorshe Elish Fatta',
         image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fatta.jpeg',
         description: 'A unique fusion of Bengali and Egyptian flavors',
-        price: '100',
+        price: '500',
         category: 'special'
       },
       {
@@ -152,15 +152,15 @@ export class MemStorage implements IStorage {
         name: 'Shorshe Elish Koshari',
         image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/koshari.jpeg',
         description: 'A unique fusion of Bengali and Egyptian flavors',
-        price: '100',
+        price: '500',
         category: 'special'
       },
       {
         id: 4,
-        name: 'Shorshe Elish Fusion',
+        name: 'Shorshe Elish Roll',
         image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fusion.jpeg',
         description: 'A unique fusion of Bengali and Egyptian flavors',
-        price: '100',
+        price: '300',
         category: 'special'
       },
       {
@@ -168,7 +168,7 @@ export class MemStorage implements IStorage {
         name: 'Shorshe Elish Shorba',
         image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/shorba.jpeg',
         description: 'A unique fusion of Bengali and Egyptian flavors',
-        price: '100',
+        price: '350',
         category: 'special'
       },
       {
@@ -176,7 +176,7 @@ export class MemStorage implements IStorage {
         name: 'Shorshe Elish and Fava Beans',
         image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fava.jpeg',
         description: 'A unique fusion of Bengali and Egyptian flavors',
-        price: '100',
+        price: '340',
         category: 'special'
       },
       {
@@ -184,7 +184,15 @@ export class MemStorage implements IStorage {
         name: 'Fried Shorshe Elish',
         image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fried.jpeg',
         description: 'A unique fusion of Bengali and Egyptian flavors',
-        price: '100',
+        price: '200',
+        category: 'special'
+      },
+      {
+        id: 8,
+        name: 'Shorshe Elish Mulukhiya',
+        image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/mulukhiya.jpeg',
+        description: 'A unique fusion of Bengali and Egyptian flavors',
+        price: '400',
         category: 'special'
       },
     ];
