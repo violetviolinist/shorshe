@@ -5,6 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 interface MenuItem {
   id: number;
@@ -74,7 +75,51 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      <section className="bg-muted py-20">
+      <section className="container mx-auto px-4 py-0 bg-background/50">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-8">Our Vision & Mission</h2>
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <Card className="p-6">
+                <h3 className="text-2xl font-semibold mb-4">Vision</h3>
+                <p className="text-muted-foreground">
+                  To create a fusion of Bengali and Egyptian flavors, celebrating shared cultural richness.
+                </p>
+              </Card>
+              <Card className="p-6">
+                <h3 className="text-2xl font-semibold mb-4">Mission</h3>
+                <p className="text-muted-foreground">
+                  We blend the heritage of Bengal with the tastes of Egypt, offering a unique and innovative culinary experience.
+                </p>
+              </Card>
+            </div>
+            
+            <Accordion type="single" collapsible className="text-left">
+              <AccordionItem value="ceo-message">
+                <AccordionTrigger className="text-xl font-semibold">A Message from Our CEO</AccordionTrigger>
+                <AccordionContent className="prose prose-lg max-w-none">
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Egypt and Bengal are both lands of spice, history, and deep cultural pride. At Shorshe Elish, we see food as a way to unite these two worlds, merging Bengal's delicate balance of flavors with Egypt's bold and hearty culinary traditions.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    We recognize Egypt's deep appreciation for rich, slow-cooked dishes—much like our Bengali Biryani, which finds similarities with Egypt's iconic Koshari. Our approach is to respect tradition while bringing fresh, innovative twists that align with Egyptian preferences.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Whether it's a new take on a classic dish or a fusion that surprises and delights, our goal is to craft an experience that Egyptians will cherish, just as Bengalis do. This is not just food—it's a dialogue between cultures, a celebration of flavors that brings people together.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="bg-muted py-20" id="featured-dishes">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">Featured Dishes</h2>
           
@@ -99,7 +144,7 @@ export default function HomePage() {
                     />
                     <h3 className="text-xl font-semibold mb-2">{item.name.length > 23 ? `${item.name.substring(0, 20)}...` : item.name}</h3>
                     <p className="text-muted-foreground mb-4">{item.description}</p>
-                    <p className="text-lg font-semibold">₹{item.price}</p>
+                    <p className="text-lg font-semibold">{item.price} EGP</p>
                   </CardContent>
                   <CardFooter>
                     <Button 

@@ -17,7 +17,7 @@ export default function Layout({ children }: LayoutProps) {
           </a>
           <div className="flex gap-6">
             <a href="/" className="text-foreground hover:text-primary transition">Home</a>
-            <a href="/menu" className="text-foreground hover:text-primary transition">Menu</a>
+            {/* <a href="/menu" className="text-foreground hover:text-primary transition">Menu</a> */}
           </div>
         </div>
       </nav>

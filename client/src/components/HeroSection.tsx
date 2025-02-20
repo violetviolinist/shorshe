@@ -25,7 +25,7 @@ export default function HeroSection() {
           size="lg" 
           className="bg-primary hover:bg-primary/90 text-white"
         >
-          <a href="/menu">Order Now</a>
+          <a href="#featured-dishes">Order Now</a>
         </Button>
       </motion.div>
     </div>

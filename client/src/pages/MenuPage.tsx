@@ -119,7 +119,7 @@ export default function MenuPage() {
                       />
                       <h3 className="text-xl font-semibold mb-2">{item.name}</h3>
                       <p className="text-muted-foreground mb-4">{item.description}</p>
-                      <p className="text-lg font-semibold">₹{item.price}</p>
+                      <p className="text-lg font-semibold">{item.price} EGP</p>
                     </CardContent>
                     <CardFooter>
                       <Button 

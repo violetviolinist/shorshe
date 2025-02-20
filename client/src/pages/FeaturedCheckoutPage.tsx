@@ -103,7 +103,7 @@ export default function FeaturedCheckoutPage() {
                 <div>
                   <h2 className="text-2xl font-semibold mb-2">{item.name}</h2>
                   <p className="text-muted-foreground mb-4">{item.description}</p>
-                  <p className="text-xl">₹{item.price}</p>
+                  <p className="text-xl">{item.price} EGP</p>
                 </div>
               </div>
             </CardContent>
