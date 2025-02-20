@@ -113,7 +113,7 @@ export default function MenuPage() {
                   <Card key={item.id}>
                     <CardContent className="p-6">
                       <img
-                        src={item.image || "https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/placeholder.png?updatedAt=1739984688784"}
+                        src={item.image || "https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/placeholder.png?updatedAt=1739984688784"}
                         alt={item.name}
                         className="w-full h-48 object-cover rounded-md mb-4"
                       />

@@ -27,7 +27,7 @@ export class MemStorage implements IStorage {
         description: "Fresh slices of vine-ripened tomatoes and creamy mozzarella cheese are layered atop toasted baguette slices, then drizzled",
         price: "100",
         category: "appetizers",
-        image: "https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/placeholder.png"
+        image: "https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/placeholder.png"
       },
       {
         id: 2,
@@ -35,7 +35,7 @@ export class MemStorage implements IStorage {
         description: "Tender rings of calamari are lightly breaded and fried to golden perfection, creating a satisfying crunch",
         price: "100",
         category: "appetizers",
-        image: "https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/placeholder.png"
+        image: "https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/placeholder.png"
       },
       {
         id: 3,
@@ -43,7 +43,7 @@ export class MemStorage implements IStorage {
         description: "Plump mushroom caps are filled with a flavorful mixture of seasoned breadcrumbs, garlic, herbs, and melted cheese",
         price: "100",
         category: "appetizers",
-        image: "https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/placeholder.png"
+        image: "https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/placeholder.png"
       },
       // Main Course
       {
@@ -52,7 +52,7 @@ export class MemStorage implements IStorage {
         description: "Succulent fillet of Atlantic salmon, seasoned and grilled to perfection",
         price: "100",
         category: "main",
-        image: "https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/placeholder.png"
+        image: "https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/placeholder.png"
       },
       {
         id: 5,
@@ -60,7 +60,7 @@ export class MemStorage implements IStorage {
         description: "Juicy Angus beef patty topped with melted cheddar cheese, crispy bacon",
         price: "100",
         category: "main",
-        image: "https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/placeholder.png"
+        image: "https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/placeholder.png"
       },
       {
         id: 6,
@@ -68,7 +68,7 @@ export class MemStorage implements IStorage {
         description: "Creamy Arborio rice simmered with a medley of wild mushrooms, garlic",
         price: "100",
         category: "main",
-        image: "https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/placeholder.png"
+        image: "https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/placeholder.png"
       },
       {
         id: 7,
@@ -76,7 +76,7 @@ export class MemStorage implements IStorage {
         description: "Tender grilled chicken breast tossed with fettuccine pasta in a velvety",
         price: "100",
         category: "main",
-        image: "https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/placeholder.png"
+        image: "https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/placeholder.png"
       },
       {
         id: 8,
@@ -84,7 +84,7 @@ export class MemStorage implements IStorage {
         description: "Colorful array of crisp vegetables, including bell peppers, broccoli, carrots",
         price: "100",
         category: "main",
-        image: "https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/placeholder.png"
+        image: "https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/placeholder.png"
       },
       // Desserts
       {
@@ -93,7 +93,7 @@ export class MemStorage implements IStorage {
         description: "A buttery pastry crust cradles a tangy lemon curd filling, creating a perfect balance of sweetness and citrusy zest",
         price: "100",
         category: "desserts",
-        image: "https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/placeholder.png"
+        image: "https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/placeholder.png"
       },
       {
         id: 10,
@@ -101,7 +101,7 @@ export class MemStorage implements IStorage {
         description: "Layers of moist red velvet sponge cake are generously filled and frosted with a luxurious cream cheese frosting",
         price: "100",
         category: "desserts",
-        image: "https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/placeholder.png"
+        image: "https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/placeholder.png"
       },
       {
         id: 11,
@@ -109,7 +109,7 @@ export class MemStorage implements IStorage {
         description: "Layers of delicate ladyfinger cookies soaked in espresso and Marsala wine are nestled between luscious mascarpone",
         price: "100",
         category: "desserts",
-        image: "https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/placeholder.png"
+        image: "https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/placeholder.png"
       },
       // Special Menu
       {
@@ -118,7 +118,7 @@ export class MemStorage implements IStorage {
         description: "Grilled lamb chops marinated in aromatic herbs, served alongside a refreshing Greek salad bursting with ripe tomatoes",
         price: "100",
         category: "special",
-        image: "https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/placeholder.png"
+        image: "https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/placeholder.png"
       },
       {
         id: 13,
@@ -126,7 +126,7 @@ export class MemStorage implements IStorage {
         description: "Crispy tempura shrimp drizzled with a sweet and spicy chili sauce, followed by tender slices of teriyaki-glazed beef",
         price: "100",
         category: "special",
-        image: "https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/placeholder.png"
+        image: "https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/placeholder.png"
       }
     ];
 
@@ -134,7 +134,7 @@ export class MemStorage implements IStorage {
       {
         id: 1,
         name: 'Shorshe Elish Date',
-        image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/shorshe_date.jpeg',
+        image: 'https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/shorshe_date.jpeg',
         description: 'A unique fusion of Bengali and Egyptian flavors',
         price: '450',
         category: 'special'
@@ -142,7 +142,7 @@ export class MemStorage implements IStorage {
       {
         id: 2,
         name: 'Shorshe Elish Fatta',
-        image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fatta.jpeg',
+        image: 'https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/fatta.jpeg',
         description: 'A unique fusion of Bengali and Egyptian flavors',
         price: '500',
         category: 'special'
@@ -150,7 +150,7 @@ export class MemStorage implements IStorage {
       {
         id: 3,
         name: 'Shorshe Elish Koshari',
-        image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/koshari.jpeg',
+        image: 'https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/koshari.jpeg',
         description: 'A unique fusion of Bengali and Egyptian flavors',
         price: '500',
         category: 'special'
@@ -158,7 +158,7 @@ export class MemStorage implements IStorage {
       {
         id: 4,
         name: 'Shorshe Elish Roll',
-        image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fusion.jpeg',
+        image: 'https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/fusion.jpeg',
         description: 'A unique fusion of Bengali and Egyptian flavors',
         price: '300',
         category: 'special'
@@ -166,7 +166,7 @@ export class MemStorage implements IStorage {
       {
         id: 5,
         name: 'Shorshe Elish Shorba',
-        image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/shorba.jpeg',
+        image: 'https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/shorba.jpeg',
         description: 'A unique fusion of Bengali and Egyptian flavors',
         price: '350',
         category: 'special'
@@ -174,7 +174,7 @@ export class MemStorage implements IStorage {
       {
         id: 6,
         name: 'Shorshe Elish and Fava Beans',
-        image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fava.jpeg',
+        image: 'https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/fava.jpeg',
         description: 'A unique fusion of Bengali and Egyptian flavors',
         price: '340',
         category: 'special'
@@ -182,7 +182,7 @@ export class MemStorage implements IStorage {
       {
         id: 7,
         name: 'Fried Shorshe Elish',
-        image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/fried.jpeg',
+        image: 'https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/fried.jpeg',
         description: 'A unique fusion of Bengali and Egyptian flavors',
         price: '200',
         category: 'special'
@@ -190,7 +190,7 @@ export class MemStorage implements IStorage {
       {
         id: 8,
         name: 'Shorshe Elish Mulukhiya',
-        image: 'https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/mulukhiya.jpeg',
+        image: 'https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/mulukhiya.jpeg',
         description: 'A unique fusion of Bengali and Egyptian flavors',
         price: '400',
         category: 'special'

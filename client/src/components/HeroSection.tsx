@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 export default function HeroSection() {
   return (
     <div className="relative h-[90vh] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://dvy2gh2r6f3xj.cloudfront.net/NEVER_DELETE/Shorshe/restaurant_view.jpeg?tr=w-1200')] bg-cover bg-center bg-no-repeat">
+      <div className="absolute inset-0 bg-[url('https://ik.imagekit.io/violetviolinist/NEVER_DELETE/Shorshe/restaurant_view.jpeg?tr=w-1200')] bg-cover bg-center bg-no-repeat">
         <div className="absolute inset-0 bg-black/60" />
       </div>
       
